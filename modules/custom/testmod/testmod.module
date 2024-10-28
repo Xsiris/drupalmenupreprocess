@@ -1,0 +1,17 @@
+<?php 
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function testmod_preprocess_menu(&$variables) {
+  if (isset($variables['menu_name'])) {
+    if ($variables['menu_name'] === 'my-menu') {
+      //$variables['attributes']['class'][] = 'my-menu';
+      foreach($variables["items"] as &$menuItem){
+        $menuItem['title'] .= " Sample999";
+      }
+    }
+  }
+}
+
+?>
